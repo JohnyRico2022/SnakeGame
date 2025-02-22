@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Змейка</string>
+
+    <string name="setting_color_green">Зеленый</string>
+    <string name="setting_color_blue">Синий</string>
+    <string name="setting_color_yellow">Желтый</string>
+    <string name="setting_color_orange">Оранжевый</string>
+    <string name="setting_color_purple">Фиолетовый</string>
+    <string name="setting_color_light_blue">Голубой</string>
+
+    <string name="setting_speed_very_slowly">Очень медленно</string>
+    <string name="setting_speed_slowly">Медленно</string>
+    <string name="setting_speed_normal">Нормально</string>
+    <string name="setting_speed_fast">Быстро</string>
+    <string name="setting_speed_very_fast">Очень быстро</string>
+
+    <string name="setting_level_very_easy">Очень легко</string>
+    <string name="setting_level_easy">Легко</string>
+    <string name="setting_level_hard">Сложно</string>
+
+    <string name="setting_orientation_vertical">Вертикально</string>
+    <string name="setting_orientation_horizontal">Горизонтально</string>
+
+    <string name="setting_language_rus">Русский</string>
+    <string name="setting_language_eng">Английский</string>
+    <string name="setting_language_it">Итальянский</string>
+    <string name="setting_language_esp">Испанский</string>
+    <string name="setting_language_fin">Финский</string>
+
+    <string name="setting_theme_light">Светлая</string>
+    <string name="setting_theme_dark">Темная</string>
+    <string name="setting_theme_as_system">Как в системе</string>
+
+    <string name="button_play">Играть</string>
+    <string name="button_settings">Настройки</string>
+    <string name="button_stats">Статистика</string>
+    <string name="button_about">О приложении</string>
+
+    <string name="settings_section_game">Игровые</string>
+    <string name="settings_section_system">Системные</string>
+
+    <string name="settings_title_color">Цвет Змейки</string>
+    <string name="settings_title_speed">Скорость змейки</string>
+    <string name="settings_title_level">Сложность игры</string>
+    <string name="settings_title_orientation">Ориентация экрана</string>
+    <string name="settings_title_language">Выбор языка</string>
+    <string name="settings_title_rising_level">Нарастающая сложность</string>
+    <string name="settings_title_theme">Тема приложения</string>
+</resources>

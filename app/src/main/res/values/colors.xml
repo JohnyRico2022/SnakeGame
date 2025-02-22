@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--цвета змейки-->
+    <color name="green">#266D2A</color>
+    <color name="blue">#3F51B5</color>
+    <color name="yellow">#CDDC39</color>
+    <color name="orange">#FF5722</color>
+    <color name="purple">#9C27B0</color>
+    <color name="light_blue">#00BCD4</color>
+
+
+    <!--системные цвета-->
+    <color name="dark_green">#26682A</color>
+    <color name="grey">#5D5B5B</color>
+
+    <color name="primary_light">#EDEDED</color>
+    <color name="primary_dark">#2A2A2A</color>
+
+</resources>
