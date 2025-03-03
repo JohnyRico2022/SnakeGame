@@ -17,19 +17,19 @@ class DataSource {
 
     fun listSpeed(): List<ItemSettingList> {
         return listOf(
-            ItemSettingList(R.drawable.ic_one_24_black, R.string.setting_speed_very_slowly, false, 450),
-            ItemSettingList(R.drawable.ic_two_24_black, R.string.setting_speed_slowly, false, 400),
+            ItemSettingList(R.drawable.ic_one_24_black, R.string.setting_speed_very_slowly, false, 400),
+            ItemSettingList(R.drawable.ic_two_24_black, R.string.setting_speed_slowly, false, 350),
             ItemSettingList(R.drawable.ic_three_24_black, R.string.setting_speed_normal, false, 300),
             ItemSettingList(R.drawable.ic_four_24_black, R.string.setting_speed_fast, false, 200),
-            ItemSettingList(R.drawable.ic_five_24_black, R.string.setting_speed_very_fast, false, 150),
+            ItemSettingList(R.drawable.ic_five_24_black, R.string.setting_speed_very_fast, false, 175),
         )
     }
 
     fun listLevel(): List<ItemSettingList> {
         return listOf(
-            ItemSettingList(R.drawable.ic_one_24_black, R.string.setting_level_very_easy, false, 99),
-            ItemSettingList(R.drawable.ic_two_24_black, R.string.setting_level_easy, false, 99),
-            ItemSettingList(R.drawable.ic_three_24_black, R.string.setting_level_hard, false, 99),
+            ItemSettingList(R.drawable.ic_level_one_24_black, R.string.setting_level_very_easy, false, 99),
+            ItemSettingList(R.drawable.ic_level_two_24_black, R.string.setting_level_easy, false, 99),
+            ItemSettingList(R.drawable.ic_level_three_24_black, R.string.setting_level_hard, false, 99),
         )
     }
 

@@ -32,11 +32,11 @@ class PlayFragment : Fragment() {
         val binding = FragmentPlayBinding.inflate(inflater, container, false)
 
         val colorList = DataSource().listColors()
-       // val speedList = DataSource().listSpeed()
+        val speedList = DataSource().listSpeed()
 
         val pref = this.requireContext().getSharedPreferences(KEY_SETTINGS, Context.MODE_PRIVATE)
         val colorIndex = pref.getInt(KEY_SETTINGS_SNAKE_COLOR, 0)
-        val speedIndex = pref.getInt(KEY_SETTINGS_SNAKE_SPEED, 0)
+        val speedIndex = pref.getInt(KEY_SETTINGS_SNAKE_SPEED, 300)
         binding.field.setSnakeColor(colorList[colorIndex].icon)
 
        // Log.d("MyLog", "${speedList[speedIndex].value.toLong()} ")
@@ -92,7 +92,7 @@ class PlayFragment : Fragment() {
                     binding.field.invalidate()
                     // canvasView.invalidate()
                     //delay(speedList[speedIndex].value.toLong())
-                    delay(400)
+                    delay(speedList[speedIndex].value.toLong())
                 }
             }
         }

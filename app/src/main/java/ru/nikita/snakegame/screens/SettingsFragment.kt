@@ -51,7 +51,7 @@ class SettingsFragment : Fragment() {
                 Bundle().apply { typeSettings = SettingsType.LANGUAGE.toString() })
         }
 
-        binding.imageBack.setOnClickListener {
+        binding.llBack.setOnClickListener {
             findNavController().popBackStack(R.id.startFragment, false)
         }
 

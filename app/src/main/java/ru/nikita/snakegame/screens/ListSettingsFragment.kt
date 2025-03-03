@@ -85,6 +85,8 @@ class ListSettingsFragment : Fragment() {
                             .putInt(KEY_SETTINGS_SNAKE_SPEED, index)
                             .apply()
 
+
+
                     } else if (settingsType.equals(SettingsType.LEVEL.toString())) {
 
                         val index = levelList.indexOf(item)
@@ -117,6 +119,7 @@ class ListSettingsFragment : Fragment() {
                         pref.edit()
                             .putInt(KEY_SETTINGS_SNAKE_LANGUAGE, index)
                             .apply()
+
                     } else if (settingsType.equals(SettingsType.THEME.toString())) {
 
                         val index = themeList.indexOf(item)
@@ -185,7 +188,7 @@ class ListSettingsFragment : Fragment() {
             }
         }
 
-        binding.buttonBack.setOnClickListener {
+        binding.llBack.setOnClickListener {
             findNavController().popBackStack(ru.nikita.snakegame.R.id.settingsFragment, false)
         }
 
