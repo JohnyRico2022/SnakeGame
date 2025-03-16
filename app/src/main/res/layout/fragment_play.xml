@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".screens.PlayFragment">
 
-    <ru.nikita.snakegame.CanvasView
+    <ru.nikita.snakegame.main.CanvasView
         android:id="@+id/field"
         android:layout_width="420px"
         android:layout_height="420px"

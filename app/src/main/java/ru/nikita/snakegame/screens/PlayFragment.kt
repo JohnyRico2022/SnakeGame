@@ -2,7 +2,6 @@ package ru.nikita.snakegame.screens
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +10,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import ru.nikita.snakegame.Food
-import ru.nikita.snakegame.R
-import ru.nikita.snakegame.Snake
+import ru.nikita.snakegame.main.Food
+import ru.nikita.snakegame.main.Snake
 import ru.nikita.snakegame.databinding.FragmentPlayBinding
-import ru.nikita.snakegame.databinding.FragmentSettingsBinding
-import ru.nikita.snakegame.databinding.FragmentStartBinding
 import ru.nikita.snakegame.settings.DataSource
 import ru.nikita.snakegame.utils.KEY_SETTINGS
 import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_COLOR
+import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_LEVEL
 import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_SPEED
 
 class PlayFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,65 +29,52 @@ class PlayFragment : Fragment() {
 
         val colorList = DataSource().listColors()
         val speedList = DataSource().listSpeed()
+        val levelList = DataSource().listLevel()
 
         val pref = this.requireContext().getSharedPreferences(KEY_SETTINGS, Context.MODE_PRIVATE)
         val colorIndex = pref.getInt(KEY_SETTINGS_SNAKE_COLOR, 0)
         val speedIndex = pref.getInt(KEY_SETTINGS_SNAKE_SPEED, 300)
-        binding.field.setSnakeColor(colorList[colorIndex].icon)
+        val levelIndex = pref.getInt(KEY_SETTINGS_SNAKE_LEVEL, 0)
 
-       // Log.d("MyLog", "${speedList[speedIndex].value.toLong()} ")
+        binding.field.setSnakeColor(colorList[colorIndex].icon)
+        binding.field.setLevel(levelList[levelIndex].value)
 
         CoroutineScope(Dispatchers.IO).launch {
             while (true) {
                 while (Snake.alive) {
                     when (Snake.direction) {
                         "up" -> {
-                            // create new head position
                             Snake.headY -= 20
-                            if (!Snake.possibleMove()) {
+                            if (!Snake.possibleMove())
                                 endGame()
-                            }
                         }
 
                         "down" -> {
-                            // create new head position
                             Snake.headY += 20
-                            if (!Snake.possibleMove()) {
+                            if (!Snake.possibleMove())
                                 endGame()
-                            }
                         }
 
                         "left" -> {
-                            // create new head position
                             Snake.headX -= 20
-                            if (!Snake.possibleMove()) {
+                            if (!Snake.possibleMove())
                                 endGame()
-                            }
-
                         }
 
                         "right" -> {
-                            // create new head position
                             Snake.headX += 20
-                            if (!Snake.possibleMove()) {
+                            if (!Snake.possibleMove())
                                 endGame()
-                            }
                         }
                     }
-                    // convert head to body
                     Snake.bodyParts.add(arrayOf(Snake.headX, Snake.headY))
 
-                    // delete tail if not eat
                     if (Snake.headX == Food.posX && Snake.headY == Food.posY) {
-                        //score++
                         Food.generate()
                     } else
                         Snake.bodyParts.removeAt(0)
 
-                    //game speed in millisecond
                     binding.field.invalidate()
-                    // canvasView.invalidate()
-                    //delay(speedList[speedIndex].value.toLong())
                     delay(speedList[speedIndex].value.toLong())
                 }
             }

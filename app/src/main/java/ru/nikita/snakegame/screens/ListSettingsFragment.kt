@@ -25,7 +25,6 @@ import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_ORIENTATION
 import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_SPEED
 import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_THEME
 
-
 class ListSettingsFragment : Fragment() {
 
     private val colorList = DataSource().listColors()

@@ -18,7 +18,10 @@ class StartFragment : Fragment() {
     ): View {
         val binding = FragmentStartBinding.inflate(inflater, container, false)
 
-//todo кнопки градиентом и их нажатие тоже переливом
+        //TODO Выход  из приложения по второму нажатию
+
+
+        //TODO Кастомный тост
 
         binding.btnPlay.setOnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_playFragment)
@@ -29,11 +32,7 @@ class StartFragment : Fragment() {
         }
 
         binding.btnStatistics.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                "Данный раздел находится в разработке!",
-                Toast.LENGTH_SHORT
-            ).show()
+            findNavController().navigate(R.id.action_startFragment_to_statsFragment)
         }
 
         binding.btnAbout.setOnClickListener {

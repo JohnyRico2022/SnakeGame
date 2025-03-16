@@ -27,9 +27,9 @@ class DataSource {
 
     fun listLevel(): List<ItemSettingList> {
         return listOf(
-            ItemSettingList(R.drawable.ic_level_one_24_black, R.string.setting_level_very_easy, false, 99),
-            ItemSettingList(R.drawable.ic_level_two_24_black, R.string.setting_level_easy, false, 99),
-            ItemSettingList(R.drawable.ic_level_three_24_black, R.string.setting_level_hard, false, 99),
+            ItemSettingList(R.drawable.ic_level_one_24_black, R.string.setting_level_very_easy, false, 0),
+            ItemSettingList(R.drawable.ic_level_two_24_black, R.string.setting_level_easy, false, 1),
+            ItemSettingList(R.drawable.ic_level_three_24_black, R.string.setting_level_hard, false, 2),
         )
     }
 
@@ -52,9 +52,9 @@ class DataSource {
 
     fun listTheme(): List<ItemSettingList> {
         return listOf(
-            ItemSettingList(R.drawable.ic_light_mode_24_black, R.string.setting_theme_light, false, 99),
-            ItemSettingList(R.drawable.ic_dark_mode_24_black, R.string.setting_theme_dark, false, 99),
-            ItemSettingList(R.drawable.ic_phone_setting_24_black, R.string.setting_theme_as_system, false, 99),
+            ItemSettingList(R.drawable.ic_light_mode_24_black, R.string.setting_theme_light, false, 1),
+            ItemSettingList(R.drawable.ic_dark_mode_24_black, R.string.setting_theme_dark, false, 2),
+            ItemSettingList(R.drawable.ic_phone_setting_24_black, R.string.setting_theme_as_system, false, -1),
         )
     }
 }

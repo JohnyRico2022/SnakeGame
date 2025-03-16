@@ -1,10 +1,10 @@
-package ru.nikita.snakegame
+package ru.nikita.snakegame.main
 
 class Food {
 
     companion object {
-        var posX = 400f
-        var posY = 400f
+        var posX = 200f
+        var posY = 200f
 
         fun generate() {
             posX = (1..20).random().toFloat() * 20

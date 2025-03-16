@@ -1,9 +1,8 @@
-package ru.nikita.snakegame
+package ru.nikita.snakegame.main
 
 class Snake {
 
     companion object {
-        // default: just one body part
         var headX = 0f
         var headY = 0f
         var bodyParts =
@@ -12,6 +11,9 @@ class Snake {
         var alive = false;
 
         fun possibleMove(): Boolean {
+            //TODO врезались в стену
+            //TODO врезались сами в себя
+
             if (headX < 0f || headX > 400f || headY < 0f || headY > 400) // врезались в край
                 return false
             return true

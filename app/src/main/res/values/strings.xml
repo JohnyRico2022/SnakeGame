@@ -46,4 +46,6 @@
     <string name="settings_title_language">Выбор языка</string>
     <string name="settings_title_rising_level">Нарастающая сложность</string>
     <string name="settings_title_theme">Тема приложения</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
