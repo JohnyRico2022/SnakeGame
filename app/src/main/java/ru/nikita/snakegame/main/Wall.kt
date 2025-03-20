@@ -3,10 +3,8 @@ package ru.nikita.snakegame.main
 class Wall {
 
     companion object {
-        var wallParts = mutableListOf<Pair<Float, Float>>()
 
-//        val wallOne = generateWAllOne()
-//        val wallTwo = generateWAllTwo()
+        var wallParts = mutableListOf<Pair<Float, Float>>()
 
          fun generateWAllOne() {
             wallParts.add(0, Pair(40F, 100F))

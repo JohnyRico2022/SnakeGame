@@ -7,7 +7,6 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import ru.nikita.snakegame.settings.DataSource
 
 class CanvasView @JvmOverloads constructor(
     context: Context,
@@ -15,6 +14,7 @@ class CanvasView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
+    var canvasCoef = 1
     private val field = Paint()
     private val food = Paint()
     private val wall = Paint()
@@ -27,7 +27,10 @@ class CanvasView @JvmOverloads constructor(
 
     fun setLevel(level: Int) {
         this.level = level
-        Log.d("MyLog", "setLevel: $level ")
+    }
+
+    fun setCoef(coef: Int) {
+        this.canvasCoef = coef
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -36,35 +39,37 @@ class CanvasView @JvmOverloads constructor(
         food.color = Color.RED
         wall.color = Color.BLACK
 
-        //draw level 20 клеток по 20 пикселей
-        canvas.drawRect(0f, 0f, 420f, 420f, field)
+        //draw level 32 клетки по 20/30 пикселей
+        canvas.drawRect(0f, 0f, 32 * canvasCoef * 10f, 32 * canvasCoef * 10f, field)
 
 
         for (i in Snake.bodyParts) {
-            canvas.drawRect(i[0], i[1], i[0] + 20, i[1] + 20, snakeBody)
+            canvas.drawRect(i[0], i[1], i[0] + canvasCoef * 10, i[1] + canvasCoef * 10, snakeBody)
         }
 
         // draw food from array
-        // left x, top y, right x+30, bottom y+30
-        canvas.drawRect(Food.posX, Food.posY, Food.posX + 20, Food.posY + 20, food)
-
+        canvas.drawRect(
+            Food.posX,
+            Food.posY,
+            Food.posX + canvasCoef * 10,
+            Food.posY + canvasCoef * 10,
+            food
+        )
 
         if (level == 1) {
-            Log.d("MyLog", "if ")
             Wall.wallParts.clear()
             Wall.generateWAllOne()
 
-            Log.d("MyLog", "${Wall.wallParts} ")
             for (i in Wall.wallParts) {
                 canvas.drawRect(i.first, i.second, i.first + 20, i.second + 20, wall)
             }
+
         } else if (level == 2) {
-            Log.d("MyLog", "else ")
+
             Wall.wallParts.clear()
             Wall.generateWAllOne()
             Wall.generateWAllTwo()
 
-            Log.d("MyLog", "${Wall.wallParts} ")
             for (i in Wall.wallParts) {
                 canvas.drawRect(i.first, i.second, i.first + 20, i.second + 20, wall)
             }

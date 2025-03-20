@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.BuildCompat
 import androidx.navigation.fragment.findNavController
 import ru.nikita.snakegame.R
 import ru.nikita.snakegame.settings.SettingsType
@@ -59,6 +61,12 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(
                 R.id.action_settingsFragment_to_listSettingsFragment,
                 Bundle().apply { typeSettings = SettingsType.THEME.toString() })
+        }
+
+        binding.llAbout.setOnClickListener {
+
+            //TODO переделать через buildConfig
+            Toast.makeText(requireContext(), "Версия приложения: v.1.0 ", Toast.LENGTH_LONG).show()
         }
 
         return binding.root

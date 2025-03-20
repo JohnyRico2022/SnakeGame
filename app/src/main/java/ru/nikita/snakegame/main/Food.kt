@@ -3,17 +3,23 @@ package ru.nikita.snakegame.main
 class Food {
 
     companion object {
-        var posX = 200f
-        var posY = 200f
 
-        fun generate() {
-            posX = (1..20).random().toFloat() * 20
-            posY = (1..20).random().toFloat() * 20
+        var foodCoef = 1
+        var posX = 300f
+        var posY = 300f
+
+        fun generateFood() {
+            posX = (1..31).random().toFloat() * foodCoef * 10
+            posY = (1..31).random().toFloat() * foodCoef * 10
         }
 
         fun resetFood() {
-            posX = 200f
-            posY = 200f
+            posX = 16 * foodCoef * 10f
+            posY = 16 * foodCoef * 10f
+        }
+
+        fun setCoef(coef: Int) {
+            this.foodCoef = coef
         }
     }
 }

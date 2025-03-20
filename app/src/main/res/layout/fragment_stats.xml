@@ -66,12 +66,13 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_high_score"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:gravity="center_vertical"
             android:paddingHorizontal="10dp"
-            android:text="530"
+            tools:text="530"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
