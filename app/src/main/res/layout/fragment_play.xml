@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".screens.PlayFragment">
 
+    <LinearLayout
+        android:id="@+id/layout_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/dark_green"
+            android:paddingHorizontal="50dp"
+            android:text="start" />
+
+    </LinearLayout>
+
     <ru.nikita.snakegame.main.CanvasView
         android:id="@+id/field"
         android:layout_width="0dp"
@@ -19,22 +41,22 @@
         android:id="@+id/score_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:text="Счет"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field" />
 
     <TextView
         android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score_title"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/score_title"
+        app:layout_constraintTop_toBottomOf="@+id/field"
         tools:text="55" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -78,21 +100,17 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button_start"
+        android:id="@+id/button_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:text="start"
+        android:backgroundTint="@color/dark_green"
+        android:paddingHorizontal="50dp"
+        android:text="pause"
+        android:visibility="gone"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/test_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="коэф: 7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,12 @@
 package ru.nikita.snakegame.screens
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import ru.nikita.snakegame.R
@@ -15,13 +18,20 @@ import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_THEME
 import androidx.core.content.edit
 import ru.nikita.snakegame.main.CanvasView
 import ru.nikita.snakegame.main.Food
+import ru.nikita.snakegame.main.HighScore
 import ru.nikita.snakegame.main.Snake
+import ru.nikita.snakegame.utils.KEY_HIGH_SCORE
 import ru.nikita.snakegame.utils.KEY_SCREEN_COEFFICIENT
 
 class MainActivity : AppCompatActivity() {
+
+    private var press = 0L
+    private val context: Context = this
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //Todo музыка
 
@@ -45,9 +55,6 @@ class MainActivity : AppCompatActivity() {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
 
         val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
-
-        Log.d("MyLog", "$width ___ $height ")
 
         var coefficient = 1;
 
@@ -56,8 +63,6 @@ class MainActivity : AppCompatActivity() {
         else if (width > 1000)
             coefficient = 3
 
-        Log.d("MyLog", "$coefficient ")
-
         Food.setCoef(coefficient)
         Snake.setCoef(coefficient)
 
@@ -65,5 +70,27 @@ class MainActivity : AppCompatActivity() {
             putInt(KEY_SCREEN_COEFFICIENT, coefficient)
         }
 
+        loadHighScore(pref)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (press + 2000L > System.currentTimeMillis())
+                    finish()
+                else
+                    Toast.makeText(context, "Нажмите еще раз для выхода", Toast.LENGTH_SHORT)
+                        .show()
+
+                press = System.currentTimeMillis()
+            }
+        })
+    }
+}
+
+private fun loadHighScore(pref: SharedPreferences) {
+
+    val highScore = pref.getInt(KEY_HIGH_SCORE, 0)
+    HighScore.highScore = highScore
 }

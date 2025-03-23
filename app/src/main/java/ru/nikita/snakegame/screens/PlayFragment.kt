@@ -17,6 +17,7 @@ import ru.nikita.snakegame.databinding.FragmentPlayBinding
 import ru.nikita.snakegame.main.Food
 import ru.nikita.snakegame.main.HighScore
 import ru.nikita.snakegame.main.Snake
+import ru.nikita.snakegame.screens.SettingsFragment.Companion.typeSettings
 import ru.nikita.snakegame.settings.DataSource
 import ru.nikita.snakegame.utils.KEY_HIGH_SCORE
 import ru.nikita.snakegame.utils.KEY_SCREEN_COEFFICIENT
@@ -32,12 +33,17 @@ class PlayFragment : Fragment() {
     private var play = false
     private var coef = 1
     private lateinit var binding: FragmentPlayBinding
+    private var pause = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPlayBinding.inflate(inflater, container, false)
+
+        val settingsType = arguments?.typeSettings
+
+        Log.d(TAG, "$settingsType ")
 
         val colorList = DataSource().listColors()
         val speedList = DataSource().listSpeed()
@@ -64,12 +70,11 @@ class PlayFragment : Fragment() {
         binding.tvScore.text = score.toString()
 
         binding.buttonStart.setOnClickListener {
+            binding.layoutStart.visibility = View.GONE
+            binding.buttonPause.visibility = View.VISIBLE
             play = true
             play(speedList[speedIndex].value.toLong())
         }
-
-        Log.d(TAG, "coef: $coef")
-        Log.d(TAG, "width: ${layoutParams.width}")
 
         binding.buttonUp.setOnClickListener {
             if (Snake.direction != "down")
@@ -88,19 +93,29 @@ class PlayFragment : Fragment() {
                 Snake.direction = "right"
         }
 
-        binding.testTv.text = "коэффициент" + coef.toString()
+        binding.buttonPause.setOnClickListener {
+            pause = !pause
+
+            if(pause) {
+                play = false
+                binding.buttonPause.text = "play"
+            } else{
+                play = true
+                binding.buttonPause.text = "pause"
+                play(speedList[speedIndex].value.toLong())
+            }
+        }
+
+        //TODO по кнопке назад предупреждение о выходе
 
         return binding.root
     }
 
-
     private fun play(speed: Long) {
-        Log.d(TAG, "play: 1")
+
         GlobalScope.launch(Dispatchers.Main) {
-            Log.d(TAG, "play: 2")
 
             while (play) {
-                Log.d(TAG, "play: 3")
 
                 when (Snake.direction) {
                     "up" -> {
@@ -145,13 +160,15 @@ class PlayFragment : Fragment() {
 
     //todo пересечение змеи с телом
     private fun endGame() {
-        // Snake.alive = false
         play = false
         checkHighScore(score)
 
         score = 0
         Snake.reset()
         Food.resetFood()
+
+        binding.layoutStart.visibility = View.VISIBLE
+        binding.buttonPause.visibility = View.GONE
     }
 
     private fun checkHighScore(score: Int) {

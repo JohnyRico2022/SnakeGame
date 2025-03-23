@@ -24,13 +24,11 @@ class StartFragment : Fragment() {
     ): View {
         val binding = FragmentStartBinding.inflate(inflater, container, false)
 
-        //TODO Выход  из приложения по второму нажатию
+
         val pref = this.requireActivity().getSharedPreferences(KEY_SETTINGS, Context.MODE_PRIVATE)
         val w = pref.getInt(KEY_SCREEN_WIDTH, 1)
         val h = pref.getInt(KEY_SCREEN_HEIGHT, 1)
-        //binding.screen.text = w.toString() + " x " + h.toString()
 
-        //TODO Кастомный тост
 
         binding.btnPlay.setOnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_playFragment)
@@ -45,13 +43,17 @@ class StartFragment : Fragment() {
         }
 
         binding.btnTournament.setOnClickListener {
-            Toast.makeText(
+            findNavController().navigate(R.id.action_startFragment_to_tournamentFragment)
+
+           /* Toast.makeText(
                 requireContext(),
                 "Данный раздел находится в разработке!",
                 Toast.LENGTH_SHORT
-            ).show()
+            ).show()*/
         }
 
         return binding.root
     }
+
+
 }

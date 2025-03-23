@@ -48,4 +48,6 @@
     <string name="settings_title_rising_level">Нарастающая сложность</string>
     <string name="settings_title_theme">Тема приложения</string>
 
+    <string name="about_tournament">В режиме турнира могут участвовать от 2 до 5 игроков. Каждому игроку дается 2 попутки. Очки этих попыток складываются и потом определяется победитель!</string>
+
 </resources>

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_startFragment_to_statsFragment"
             app:destination="@id/statsFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_tournamentFragment"
+            app:destination="@id/tournamentFragment" />
     </fragment>
     <fragment
         android:id="@+id/playFragment"
@@ -58,5 +61,14 @@
         <action
             android:id="@+id/action_statsFragment_to_startFragment"
             app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tournamentFragment"
+        android:name="ru.nikita.snakegame.screens.TournamentFragment"
+        android:label="fragment_tournament"
+        tools:layout="@layout/fragment_tournament" >
+        <action
+            android:id="@+id/action_tournamentFragment_to_playFragment"
+            app:destination="@id/playFragment" />
     </fragment>
 </navigation>
