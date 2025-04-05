@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--   standard item for setting  -->
+    <dimen name="is_height">40dp</dimen>
+    <dimen name="is_margin_top_first">50dp</dimen>
+    <dimen name="is_margin_top_next">10dp</dimen>
+    <dimen name="is_margin_horizontal">15dp</dimen>
+    <dimen name="is_margin_start_nested_element">10dp</dimen>
+    <!--   linearLayout button back  -->
+    <dimen name="lbb_margin_top">30dp</dimen>
+    <dimen name="lbb_margin_start_nested_element">10dp</dimen>
+    <dimen name="lbb_margin_end_nested_element">10dp</dimen>
+</resources>

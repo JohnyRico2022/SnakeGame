@@ -6,14 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.nikita.snakegame.settings.ItemSettingList
+import ru.nikita.snakegame.models.ItemSettingList
 import ru.nikita.snakegame.databinding.ItemRecyclerViewBinding
 
 class Adapter(
     private val resources: Resources,
     private val onInteractionListener: OnInteractionListener
-) :
-    ListAdapter<ItemSettingList, SettingsViewHolder>(SettingsDiffCallback()) {
+) : ListAdapter<ItemSettingList, SettingsViewHolder>(SettingsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsViewHolder {
         val binding =

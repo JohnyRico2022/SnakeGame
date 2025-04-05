@@ -36,6 +36,8 @@
     <string name="button_stats">Статистика</string>
     <string name="button_tournament">Турнир</string>
     <string name="button_about">О приложении</string>
+    <string name="button_pause">Пауза</string>
+    <string name="button_start">Старт</string>
 
     <string name="settings_section_game">Игровые</string>
     <string name="settings_section_system">Системные</string>

@@ -1,4 +1,4 @@
-package ru.nikita.snakegame.settings
+package ru.nikita.snakegame.models
 
 data class ItemSettingList(
     val icon: Int,

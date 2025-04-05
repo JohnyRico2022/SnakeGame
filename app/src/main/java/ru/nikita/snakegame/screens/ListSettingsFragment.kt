@@ -15,7 +15,7 @@ import ru.nikita.snakegame.adapter.OnInteractionListener
 import ru.nikita.snakegame.databinding.FragmentListSettingsBinding
 import ru.nikita.snakegame.screens.SettingsFragment.Companion.typeSettings
 import ru.nikita.snakegame.settings.DataSource
-import ru.nikita.snakegame.settings.ItemSettingList
+import ru.nikita.snakegame.models.ItemSettingList
 import ru.nikita.snakegame.settings.SettingsType
 import ru.nikita.snakegame.utils.KEY_SETTINGS
 import ru.nikita.snakegame.utils.KEY_SETTINGS_SNAKE_COLOR

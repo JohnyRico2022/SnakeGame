@@ -1,6 +1,7 @@
 package ru.nikita.snakegame.settings
 
 import ru.nikita.snakegame.R
+import ru.nikita.snakegame.models.ItemSettingList
 
 class DataSource {
 
@@ -42,11 +43,11 @@ class DataSource {
 
     fun listLanguage(): List<ItemSettingList> {
         return listOf(
-            ItemSettingList(R.drawable.russia_flag, R.string.setting_language_rus, false, 99),
+            ItemSettingList(R.drawable.flag_russia, R.string.setting_language_rus, false, 99),
             ItemSettingList(R.drawable.great_britain_flag, R.string.setting_language_eng, false, 99),
-            ItemSettingList(R.drawable.italy_flag, R.string.setting_language_it, false, 99),
-            ItemSettingList(R.drawable.spain_flag, R.string.setting_language_esp, false, 99),
-            ItemSettingList(R.drawable.finland_flag, R.string.setting_language_fin, false, 99),
+            ItemSettingList(R.drawable.flag_italy, R.string.setting_language_it, false, 99),
+            ItemSettingList(R.drawable.flag_spain, R.string.setting_language_esp, false, 99),
+            ItemSettingList(R.drawable.flag_finland, R.string.setting_language_fin, false, 99),
         )
     }
 
@@ -55,6 +56,16 @@ class DataSource {
             ItemSettingList(R.drawable.ic_light_mode_24_black, R.string.setting_theme_light, false, 1),
             ItemSettingList(R.drawable.ic_dark_mode_24_black, R.string.setting_theme_dark, false, 2),
             ItemSettingList(R.drawable.ic_phone_setting_24_black, R.string.setting_theme_as_system, false, -1),
+        )
+    }
+
+    fun listIcon(): List<String> {
+        return listOf(
+            "\uD83D\uDC04",
+            "\uD83D\uDC18",
+            "\uD83D\uDC0C",
+            "\uD83E\uDD8D",
+            "\uD83E\uDD85"
         )
     }
 }

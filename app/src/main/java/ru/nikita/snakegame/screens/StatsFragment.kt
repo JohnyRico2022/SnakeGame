@@ -25,15 +25,19 @@ class StatsFragment : Fragment() {
 
         binding.fragmentTitle.text = getString(R.string.button_stats)
 
-        //TODO при нулевой статистике кнопка не активна
+
         val pref = this.requireContext().getSharedPreferences(KEY_SETTINGS, Context.MODE_PRIVATE)
         val highScore = pref.getInt(KEY_HIGH_SCORE, 0)
 
         binding.tvHighScore.text = highScore.toString()
 
+        if(highScore == 0)
+            binding.buttonDeleteStats.isEnabled = false
+
         binding.llBack.setOnClickListener {
             findNavController().popBackStack(R.id.startFragment, false)
         }
+
 
 
         //TODO спросить про удаление и предупредить о безвозвратной потере данных
@@ -44,13 +48,8 @@ class StatsFragment : Fragment() {
             }
             HighScore.highScore = 0
             Toast.makeText(requireContext(), "Статистика удалена!", Toast.LENGTH_LONG).show()
+            binding.buttonDeleteStats.isEnabled = false
         }
-
-
-
-
-
-
 
 
         return binding.root

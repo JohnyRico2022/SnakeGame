@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ru.nikita.snakegame.R
 import ru.nikita.snakegame.databinding.FragmentPlayBinding
 import ru.nikita.snakegame.main.Food
 import ru.nikita.snakegame.main.HighScore
@@ -98,10 +99,10 @@ class PlayFragment : Fragment() {
 
             if(pause) {
                 play = false
-                binding.buttonPause.text = "play"
+                binding.buttonPause.text = getString(R.string.button_play)
             } else{
                 play = true
-                binding.buttonPause.text = "pause"
+                binding.buttonPause.text = getString(R.string.button_pause)
                 play(speedList[speedIndex].value.toLong())
             }
         }

@@ -32,11 +32,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         //Todo музыка
-
         //TODO при первом старте тема всегда светлая или как в телефоне
-
         //Todo режим турнир
 
         val pref = this.getSharedPreferences(KEY_SETTINGS, Context.MODE_PRIVATE)
@@ -73,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         loadHighScore(pref)
     }
 
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         super.onBackPressed()
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -86,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 press = System.currentTimeMillis()
             }
         })
-    }
+    }*/
 }
 
 private fun loadHighScore(pref: SharedPreferences) {
